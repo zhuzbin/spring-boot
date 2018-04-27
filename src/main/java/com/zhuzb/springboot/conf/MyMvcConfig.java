@@ -1,8 +1,11 @@
 package com.zhuzb.springboot.conf;
 
 import org.springframework.boot.autoconfigure.jms.JmsProperties;
+import org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.thymeleaf.templateresolver.TemplateResolution;
 
 /**
@@ -12,11 +15,12 @@ import org.thymeleaf.templateresolver.TemplateResolution;
  * Time：17:45
  */
 @Configuration
-public class MyMvcConfig {
+public class MyMvcConfig extends WebMvcConfigurerAdapter {
 
-/*    @Bean
-    public
-    templateResolver(){
-
-    }*/
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/ws").setViewName("/ws");
+        registry.addViewController("/login").setViewName("/login");
+        registry.addViewController("/chat").setViewName("/chat");
+    }
 }

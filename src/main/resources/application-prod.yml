@@ -1,7 +1,7 @@
 server:
   port: 9090
   servlet:
-    context-path: /hello
+    context-path: /
 
 book.name: spring-boot
 book.author: zhuzbs
